@@ -1,0 +1,21 @@
+<div>
+  <label>New department:</label> <input #departmentName />
+  <button (click)="add(departmentName.value); departmentName.value=''">
+    Add
+  </button>
+</div>
+<ul class="departments">
+  <li *ngFor="let department of departments" (click)="onSelect(department)"
+      [class.selected]="department === selectedDepartment">
+    <span class="badge">{{department.id}}</span>
+    <span>{{department.name}}</span>
+    <button class="delete"
+      (click)="delete(department); $event.stopPropagation()">x</button>
+  </li>
+</ul>
+<div *ngIf="selectedDepartment">
+  <h2>
+    {{selectedDepartment.name | uppercase}} department
+  </h2>
+  <button (click)="gotoDetail()">Show users</button>
+</div>

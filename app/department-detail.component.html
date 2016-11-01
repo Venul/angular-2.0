@@ -1,0 +1,10 @@
+<div *ngIf="department">
+  <h2>{{department.name}} list users</h2>
+  <div>
+    <label>id: </label>{{department.id}}</div>
+  <div>
+    <label>name: </label>{{department.name}}
+  </div>
+
+  <button (click)="goBack()">Back</button>
+</div>
